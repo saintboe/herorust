@@ -15,6 +15,7 @@ mod metadata;
 
 const REVEAL_FEE: u128 = 1_000_000_000_000_000_000_000_000;
 
+//A contract structure
 #[near_bindgen]
 #[derive(BorshDeserialize, BorshSerialize)]
 pub struct HeroRustContract {
@@ -52,6 +53,7 @@ impl HeroRustContract {
         }
     }
 
+    //Reveal Hero
     #[payable]
     pub fn reveal_hero(&mut self) {
         let owner = env::predecessor_account_id();
@@ -76,6 +78,7 @@ impl HeroRustContract {
         self.hero_map.insert(&owner, &rarity);
     }
 
+    //Ruble Hero 
     pub fn hero_rumble(&mut self) -> HeroRumbleResult {
 
         let owner = env::predecessor_account_id();
@@ -138,6 +141,7 @@ impl HeroRustContract {
         result
     }
 
+    //View mode 
     pub fn get_contract_pool(&self) -> u128 {
         self.reward_pool
     }

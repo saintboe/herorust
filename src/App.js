@@ -84,6 +84,7 @@ export default function App() {
   return (
     // use React Fragment, <>, to avoid wrapping elements in unnecessary divs
     <>
+      <label style={{float: 'left'}}>HeroRust</label>
       <button className="link" style={{ float: 'right' }} onClick={logout}>
         Sign out
       </button>
