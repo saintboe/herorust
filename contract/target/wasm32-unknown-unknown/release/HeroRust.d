@@ -1,1 +1,0 @@
-/Users/saintboe/NEAR/herorust/contract/target/wasm32-unknown-unknown/release/HeroRust.wasm: /Users/saintboe/NEAR/herorust/contract/src/internal.rs /Users/saintboe/NEAR/herorust/contract/src/lib.rs /Users/saintboe/NEAR/herorust/contract/src/metadata.rs

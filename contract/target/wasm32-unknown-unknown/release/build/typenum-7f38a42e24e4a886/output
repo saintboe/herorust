@@ -1,2 +1,0 @@
-cargo:rustc-env=TYPENUM_BUILD_CONSTS=/Users/saintboe/NEAR/herorust/contract/target/wasm32-unknown-unknown/release/build/typenum-7f38a42e24e4a886/out/consts.rs
-cargo:rustc-env=TYPENUM_BUILD_OP=/Users/saintboe/NEAR/herorust/contract/target/wasm32-unknown-unknown/release/build/typenum-7f38a42e24e4a886/out/op.rs
