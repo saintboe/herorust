@@ -59,12 +59,15 @@ impl HeroRustContract {
         let owner = env::predecessor_account_id();
         let deposit = env::attached_deposit();
         
+        //Check reveal fee
         if deposit != REVEAL_FEE {
             panic!("Reveal Fee must be {}", REVEAL_FEE)
         }
 
+        //Added to rewards pool
         self.reward_pool = self.reward_pool + deposit;
 
+        //Random type of Hero 
         let rarity = from_seed(env::random_seed());
         let heroseed = env::random_seed()[..size_of::<HeroSeed>()].try_into().unwrap();
         
@@ -81,6 +84,7 @@ impl HeroRustContract {
     //Ruble Hero 
     pub fn hero_rumble(&mut self) -> HeroRumbleResult {
 
+        //Validation user
         let owner = env::predecessor_account_id();
         assert_eq!(
             owner.clone(),
@@ -88,6 +92,7 @@ impl HeroRustContract {
             "Invalid user for method"
         );
 
+        //Shoud have hero before start rumble game
         let rarity = self.get_hero_info(owner.clone());
         assert!(
             rarity != "DEAD".to_string(),
@@ -97,6 +102,7 @@ impl HeroRustContract {
         let inhuman = "INHUMAN".to_string();
         let hero = "HERO".to_string();
 
+        //Assign power by type of hero
         let mut player_power = 0_u8;
         if rarity == inhuman {
             player_power = 60_u8;
@@ -110,6 +116,7 @@ impl HeroRustContract {
         let mut rumble_result = "DRAW".to_string();
         let mut reward_share = self.reward_pool / 4_u128;
 
+        //Compare power with enermy and transfer rewards when win
         if enermy_power >= player_power {
             let dead =  "DEAD".to_string();
             self.hero_map.insert(&owner.clone(), &dead);
@@ -141,7 +148,9 @@ impl HeroRustContract {
         result
     }
 
-    //View mode 
+    ////////////////////
+    // View infomation Function 
+    ////////////////////
     pub fn get_contract_pool(&self) -> u128 {
         self.reward_pool
     }
@@ -187,6 +196,9 @@ impl HeroRustContract {
 
 }
 
+////////////////////
+// Unittest Function 
+////////////////////
 #[cfg(test)]
 mod tests {
     use super::*;
