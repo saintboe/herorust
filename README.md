@@ -17,7 +17,7 @@ REVEAL - Before go to the battlefields, use need to own hero by 1 NEAR reveal fe
 
 RUMBLE - When you got a HUMAN INHUMAN or HERO user can sent them to rumble with the enemy. If won user will take 30% of reward pool.
 
-# Econimics 
+# Heroecomonic
 100% of REVEAL FEE will come to REWARD POOL, and Winner will take 30% of pool.
 
 # Rules and Rewards
