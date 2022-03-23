@@ -2,6 +2,8 @@ HeroRust
 ================================
 Reveal a HERO and get your rewards.
 
+HeroRust = "Hero" made by "Rust"
+
 # Why HeroRust
 With NEAR blockchain can do. 
 Fast Easy Transparency
@@ -9,6 +11,8 @@ A trasnfer and random number on the block it key. No one can change a result and
 
 # How to play 
 On the page, user will do only 2 things REVEAL and RUMBLE
+
+Please Take a look DEMO VDO : https://www.loom.com/share/dc9506ce451e42b1acee465ec0d2d088
 
 REVEAL - Before go to the battlefields, use need to own hero by 1 NEAR reveal fee. User have chance to get 3 types of HERO
 1. HUMAN - Just a normal man but will got 50 Power, mean chance to rumble win and get rewards is 49% 

@@ -1,4 +1,4 @@
-const CONTRACT_NAME = 'herorust-alpha6.nftsitaan.testnet'
+const CONTRACT_NAME = 'herorust-alpha.herorust.testnet'
 
 function getConfig(env) {
   switch (env) {

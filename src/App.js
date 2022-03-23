@@ -151,8 +151,14 @@ export default function App() {
             try {
               await window.contract.hero_rumble({id: window.accountId})
                 .then(rumbleFromContract => {
-                  const datarumble = JSON.stringify(rumbleFromContract)
+                  let datarumble = JSON.stringify(rumbleFromContract)
+                  // if (datarumble == undefined){
+                  //   datarumble = JSON.parse('{}');
+                  // } else {
+                  //datarumble = JSON.parse(datarumble);
+                  // }
                   set_rumble(datarumble)
+                  
               })
             } catch (e) {
               alert(
@@ -214,7 +220,7 @@ export default function App() {
           </fieldset>
         </form>
         <p>
-         RUMBLE RESULT : { rumble } 
+         RUMBLE RESULT : {rumble}
         </p>
         <p>
           Rumble a HERO get REWARDS!!! | POOL = {pool} NEAR 
