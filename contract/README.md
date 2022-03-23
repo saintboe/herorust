@@ -7,7 +7,7 @@ Play With Contract
 ===========
 the contract is deployed on testnet with the name 
 
-you can set it to environment for next step:
+you can set it to environment for next step: herorust-alpha.herorust.testnet
 
 ```shell
 export CONTRACTID = {YOU CONTRACT NAME}
@@ -25,7 +25,7 @@ near view $CONTRACTID get_hero_info '{"account_id":"player.testnet"}'
 ```
 ## RUMBLE
 ```shell
-# Rumble sent hero for battle will return result 
+# Rumble sent hero for battle will return result eg.If return WIN can be runble again
 near call $CONTRACTID hero_rumble '' --account_id player.testnet
 ```
 ## HISTORY
@@ -62,7 +62,6 @@ Exploring The Code
 
 1. The main smart contract code lives in `src/lib.rs`. 
 2. Tests: You can run smart contract tests with the comand 'yarn test'
-
 
   [smart contract]: https://docs.near.org/docs/develop/contracts/overview
   [Rust]: https://www.rust-lang.org/

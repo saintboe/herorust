@@ -175,7 +175,7 @@ aside footer *:last-child {
 
 @media (prefers-color-scheme: dark) {
   html {
-    --bg: #103c5a;
+    --bg: #23465e;
     --fg: #efefef;
     --gray: #aaa;
     --shadow: #2a2a2a;
@@ -191,4 +191,12 @@ aside footer *:last-child {
 
 .heroreveal {
   max-width: 30%;
+}
+
+.heroreveal_f {
+  max-width: 15%;
+}
+
+.hero_login {
+  text-align: center;
 }

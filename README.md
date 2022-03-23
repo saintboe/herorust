@@ -26,6 +26,88 @@ More Win more Rewards
 Example : HUMAN 50 Power and ENEMY 50 POWER -- ENEMY WIN
 2. When user win a HUMAN INHUMAN and HERO still alive user can play a rumble again, but when lose will become to DEAD. Need to reveal new types of hero again for rumble next round.
 
+About Contract
+===============
+All persistant information is stored and operate on NEAR chain by a contact.
+
+## Contract Structure
+```rust
+//A main contract struct
+#[near_bindgen]
+#[derive(BorshDeserialize, BorshSerialize)]
+pub struct HeroRustContract {
+    pub owner_id: AccountId,
+    pub reward_pool: Balance,
+    pub hero_reveal: Vector<Hero>,
+    pub play_history: Vector<PlayLog>,
+    pub hero_map: LookupMap<AccountId, String>,
+}
+```
+
+## Interface Structure
+```rust
+// Pay history 
+#[derive(Serialize, Deserialize)]
+#[serde(crate = "near_sdk::serde")]
+pub struct PlayHistory {
+    pub block: U64,
+    pub player: AccountId,
+    pub result: String,
+    pub reward: U128,
+}
+
+//Hero reveal info
+#[derive(Serialize, Deserialize)]
+#[serde(crate = "near_sdk::serde")]
+pub struct HeroRevealInfo {
+    pub id: String,
+    pub rarity: String,
+    pub owner: AccountId,
+    pub created: U64,
+}
+
+//Rumble Result
+#[derive(Serialize, Deserialize)]
+#[serde(crate = "near_sdk::serde")]
+pub struct HeroRumbleResult {
+    pub block: U64,
+    pub player: AccountId,
+    pub player_power: u8,
+    pub enermy_power: u8,
+    pub result: String,
+    pub reward: U128,
+    pub playtime: U64,
+}
+
+//initial Contract
+#[init]
+    pub fn new (
+        owner_id: AccountId,
+    ) -> Self;
+
+//User function
+/// User deposit 1 NEAR for reveal 1 Hero and add reveal fee to reward pool
+#[payable]
+pub fn reveal_hero(&mut self);
+
+/// User play a rumble game for get reward from pool
+pub fn hero_rumble(&mut self) -> HeroRumbleResult;
+
+//History and Infomation Function
+// get type of a reveal hero
+pub fn get_contract_pool(&self) -> u128;
+
+/// get hero infomation by account_id
+pub fn get_hero_info(&self, account_id: AccountId) -> String;
+
+/// get all reveal history
+pub fn get_revealhero_history(&self, from_index: u64, limit: u64) -> Vec<HeroRevealInfo>;
+
+/// get all play history and rewards
+pub fn get_rumble_history(&self, from_index: u64, limit: u64) -> Vec<PlayHistory>;
+```
+
+
 
 Quick Start
 ===========

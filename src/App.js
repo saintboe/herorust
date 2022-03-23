@@ -60,7 +60,12 @@ export default function App() {
   if (!window.walletConnection.isSignedIn()) {
     return (
       <main>
-        <h1>Welcome to NEAR!</h1>
+        <div className='hero_login'>
+          <img className="heroreveal_f" src={imgunknow} alt=''></img>
+          <img className="heroreveal_f" src={imghuman} alt=''></img>
+          <img className="heroreveal_f" src={imginhuman} alt=''></img>
+          <img className="heroreveal_f" src={imghero} alt=''></img>
+        <h1>Welcome to NEAR HeroRust!</h1>
         <p>
           To make use of the NEAR blockchain, you need to sign in. The button
           below will sign you in using NEAR Wallet.
@@ -77,6 +82,7 @@ export default function App() {
         <p style={{ textAlign: 'center', marginTop: '2.5em' }}>
           <button onClick={login}>Sign in</button>
         </p>
+        </div>
       </main>
     )
   }
@@ -125,7 +131,7 @@ export default function App() {
 
           if (state.button === 1) {
             try {
-              await window.contract.reveal_hero({},
+              await window.contract.reveal_hero({id: window.accountId},
                 300000000000000, 
                 new BN("1000000000000000000000000"));
             } catch (e) {
