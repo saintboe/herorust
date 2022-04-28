@@ -69,7 +69,6 @@ export default function App() {
         <p>
           To make use of the NEAR blockchain, you need to sign in. The button
           below will sign you in using NEAR Wallet.
-          ------------------------------------------------------
         </p>
         <p>
           By default, when your app runs in "development" mode, it connects
