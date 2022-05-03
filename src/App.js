@@ -17,7 +17,7 @@ export default function App() {
   // use React Hooks to store greeting in component state
   const [hero, set_hero] = React.useState()
   const [pool, set_pool] = React.useState()
-  const [rumble, set_rumble] = React.useState()
+  const [rumble, set_rumble] = React.useState({})
 
   const state = {
     button: 1
@@ -151,14 +151,17 @@ export default function App() {
             try {
               await window.contract.hero_rumble({id: window.accountId})
                 .then(rumbleFromContract => {
-                  let datarumble = JSON.stringify(rumbleFromContract)
+                  console.log(rumbleFromContract)
+                  //let datarumble = JSON.parse(rumbleFromContract)
                   // if (datarumble == undefined){
                   //   datarumble = JSON.parse('{}');
                   // } else {
                   //datarumble = JSON.parse(datarumble);
                   // }
-                  set_rumble(datarumble)
+                  //set_rumble(datarumble)
                   
+                  set_rumble(rumbleFromContract)
+
               })
             } catch (e) {
               alert(
@@ -220,7 +223,7 @@ export default function App() {
           </fieldset>
         </form>
         <p>
-         RUMBLE RESULT : {rumble}
+         RUMBLE RESULT : {Object.keys(rumble).length > 0 ? rumble.block : ""}
         </p>
         <p>
           Rumble a HERO get REWARDS!!! | POOL = {pool} NEAR 
