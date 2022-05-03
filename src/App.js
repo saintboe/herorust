@@ -152,14 +152,6 @@ export default function App() {
               await window.contract.hero_rumble({id: window.accountId})
                 .then(rumbleFromContract => {
                   console.log(rumbleFromContract)
-                  //let datarumble = JSON.parse(rumbleFromContract)
-                  // if (datarumble == undefined){
-                  //   datarumble = JSON.parse('{}');
-                  // } else {
-                  //datarumble = JSON.parse(datarumble);
-                  // }
-                  //set_rumble(datarumble)
-                  
                   set_rumble(rumbleFromContract)
 
               })
@@ -223,7 +215,7 @@ export default function App() {
           </fieldset>
         </form>
         <p>
-         RUMBLE RESULT : {Object.keys(rumble).length > 0 ? rumble.block : ""}
+         RUMBLE RESULT : {Object.keys(rumble).length > 0 ? "BLOCK:" + rumble.block + " RESULT:" + rumble.result + " (PLAYER_POWER-" + rumble.player_power + ",ENERMY_POWER-" + rumble.enermy_power + ") REWARDS:" + rumble.reward : ""}
         </p>
         <p>
           Rumble a HERO get REWARDS!!! | POOL = {pool} NEAR 
